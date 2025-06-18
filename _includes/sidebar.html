@@ -9,34 +9,22 @@
       <h1>
           {{ site.title }}
       </h1>
-      <p style="font-size: 17px;" class="lead">{{ site.description }}</p>
+      <p style="font-size: 0.75rem;" class="lead">{{ site.description }}</p>
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == {site.url} %} active{% endif %}" href="https://giorgioventurin.github.io">Home Page</a>
-
-      {% comment %}
-        The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
-      {% endcomment %}
-
-      {% assign pages_list = site.pages %}
-      {% for node in pages_list %}
-        {% if node.title != null %}
-          {% if node.layout == "page" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-
-
-      <a class="sidebar-nav-item-small" href="mailto:giorgio.venturin@phd.unipd.it"><i class="fas fa-envelope"></i></a>
-      <a class="sidebar-nav-item-small" href="https://scholar.google.com/citations?user=0Ou5qzwAAAAJ&hl=it"><i class="fas fa-graduation-cap"></i></a>
-      <a class="sidebar-nav-item-small" href="https://www.linkedin.com/in/giorgio-venturin"><i class="fab fa-linkedin"></i></a>
-      <a class="sidebar-nav-item-small" href="https://github.com/giorgioventurin"><i class="fab fa-github"></i></a>
+        <a class="sidebar-nav-item" href="{{ site.baseurl }}/">Homepage</a>
+        <a class="sidebar-nav-item" href="{{ site.baseurl }}/news">News</a>
+        <a class="sidebar-nav-item" href="{{ site.baseurl }}/publications">Publications</a>
+        <a class="sidebar-nav-item" href="{{ site.baseurl }}/education">Education</a>
+        <a class="sidebar-nav-item" href="{{ site.baseurl }}/awards">Awards</a>
+        <a class="sidebar-nav-item-small" href="mailto:giorgio.venturin@phd.unipd.it"><i class="fas fa-envelope"></i></a>
+        <a class="sidebar-nav-item-small" href="https://scholar.google.com/citations?user=0Ou5qzwAAAAJ&hl=it"><i class="fas fa-graduation-cap"></i></a>
+        <a class="sidebar-nav-item-small" href="https://www.linkedin.com/in/giorgio-venturin"><i class="fab fa-linkedin"></i></a>
+        <a class="sidebar-nav-item-small" href="https://github.com/giorgioventurin"><i class="fab fa-github"></i></a>
     </nav>
 
-    <p style="font-size: 16px;">
+    <p style="font-size: 0.65rem;">
       &copy; Giorgio Venturin <br>
       Powered by (Dr.) <a href="https://jekyllrb.com">Jekyll</a> & (Mr.) <a href="https://hyde.getpoole.com/">Hyde</a> <br>
       Site last updated: June 2025
