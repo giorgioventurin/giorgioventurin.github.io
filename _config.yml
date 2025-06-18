@@ -3,14 +3,14 @@ markdown:         kramdown
 highlighter:      pygments
 
 # Permalinks
-permalink:        pretty
+permalink:        /:title.html
 
 # Setup
 title:            Giorgio Venturin
 tagline:          'Homepage'
 description:      'Ph.D. Candidate in Computer Engineering, University of Padova (IT).'
-url:              https://giorgioventurin.github.io
-baseurl:          /
+url:              "https://giorgioventurin.github.io"
+baseurl:          ""
 
 plugins:          [jekyll-paginate, jekyll-gist]
 paginate:         5
