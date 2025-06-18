@@ -9,6 +9,7 @@ permalink:        pretty
 title:            Giorgio Venturin
 tagline:          'Homepage'
 description:      'Ph.D. Candidate in Computer Engineering, University of Padova (IT).'
+url:              https://giorgioventurin.github.io
 baseurl:          /
 
 plugins:          [jekyll-paginate, jekyll-gist]
