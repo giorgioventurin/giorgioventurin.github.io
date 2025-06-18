@@ -6,7 +6,7 @@ title: News
 ---
 
 **May 2025**
-* My paper "Efficient Approximate Temporal Triangle Counting in Streaming with Predictions" has been accepted at ECML-PKDD 2025 as a regular paper (acceptance rate 24%).
+* My paper "Efficient Approximate Temporal Triangle Counting in Streaming with Predictions" has been accepted at [ECML-PKDD 2025](https://ecmlpkdd.org/2025/) as a regular paper (acceptance rate 24%).
 
 **October 2024**  
 * I will be providing teaching assistance for the course “Machine Learning” (Fall 2024), from the Master’s Degree in Computer Engineering at the University of Padova.
