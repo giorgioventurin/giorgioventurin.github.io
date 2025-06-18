@@ -1,0 +1,16 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Giorgio Venturin
+tagline:          'Homepage'
+description:      'Ph.D. Candidate in Computer Engineering, University of Padova (IT).'
+baseurl:          /
+
+plugins:          [jekyll-paginate, jekyll-gist]
+paginate:         5
+paginate_path:    "page:num"

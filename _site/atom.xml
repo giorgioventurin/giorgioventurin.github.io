@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Giorgio Venturin</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2025-06-18T16:50:40+02:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name></name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>About me</title>
+   <link href="http://localhost:4000/2025/06/17/about-me/"/>
+   <updated>2025-06-17T00:00:00+02:00</updated>
+   <id>http://localhost:4000/2025/06/17/about me</id>
+   <content type="html">
+&lt;hr /&gt;
+&lt;p&gt;I am a Ph.D. student in Computer Engineering at the &lt;a href=&quot;https://www.dei.unipd.it&quot;&gt;Department of Information Engineering&lt;/a&gt; of the University of Padova (IT), under the supervision of Prof. &lt;a href=&quot;https://www.dei.unipd.it/~vandinfa/PI.html&quot;&gt;Fabio Vandin&lt;/a&gt;. I am currently a member of the &lt;a href=&quot;https://www.dei.unipd.it/~vandinfa/index.html&quot;&gt;VandinLab&lt;/a&gt; and of the &lt;a href=&quot;https://aidalabdei.github.io/&quot;&gt;AIDA Lab&lt;/a&gt; research groups.&lt;/p&gt;
+
+&lt;p&gt;You can find my full CV &lt;a href=&quot;res/docs/CV.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;research-interests&quot;&gt;&lt;strong&gt;Research interests&lt;/strong&gt;&lt;/h1&gt;
+&lt;hr /&gt;
+&lt;p&gt;My primary research interests are focused on &lt;em&gt;Machine Learning&lt;/em&gt;, &lt;em&gt;Data Mining&lt;/em&gt; and &lt;em&gt;Network Analysis&lt;/em&gt;.
+In particular, I study the integration of machine learning techniques with classical algorithm design, with interdisciplinary applications in bioinformatics and network analysis.&lt;/p&gt;
+
+&lt;h1 id=&quot;contacts&quot;&gt;&lt;strong&gt;Contacts&lt;/strong&gt;&lt;/h1&gt;
+&lt;hr /&gt;
+&lt;p&gt;Via Giovanni Gradenigo 6/B&lt;br /&gt;
+Department of Information Engineering&lt;br /&gt;
+University of Padova, Italy, IT 35131&lt;/p&gt;
+
+&lt;p&gt;Office: Room 418&lt;br /&gt;
+Building: DEI/G&lt;br /&gt;
+Phone: +39 049 827 7954&lt;/p&gt;
+
+&lt;p&gt;Mail:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Departmental: giorgio [dot] venturin [at] phd [dot] unipd [dot] it&lt;/li&gt;
+  &lt;li&gt;Personal: giorgioventurin5 [at] gmail [dot] com&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+
+</feed>
