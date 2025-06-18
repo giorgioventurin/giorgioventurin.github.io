@@ -3,9 +3,13 @@ layout: default
 title: Home
 ---
 
+<button class="sidebar-toggle">
+  <i class="fas fa-bars"></i>
+</button>
+
 {% for page in site.pages %}
 {% if page.title == "About me" %}
-  <div class="page">
+  <div id="main-content" class="page">
     <h1 class="page-title">
         {{ page.title }}
     </h1>
@@ -13,6 +17,5 @@ title: Home
   </div>
 {% endif %}
 {% endfor %}
-
 
 

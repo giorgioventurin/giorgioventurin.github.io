@@ -27,4 +27,76 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+ <style>
+    /* Mobile sidebar toggle button */
+    .sidebar-toggle {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000; /* Ensure it's above other content */
+      background-color: #333; /* Dark background */
+      color: #fff; /* White text */
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Show the toggle button on screens smaller than 768px (common tablet breakpoint) */
+    @media (max-width: 768px) {
+      .sidebar-toggle {
+        display: block;
+      }
+
+      /* Hide the sidebar by default on small screens */
+      .sidebar {
+        transform: translateX(-100%); /* Move off-screen to the left */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        /* Adjusted width to fit the display size using viewport width units */
+        width: 80vw; /* Takes up 80% of the viewport width */
+        max-width: 280px; /* Optional: Keep a maximum width for larger mobile devices/tablets */
+        z-index: 999;
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+      }
+
+      /* When 'sidebar-show' class is added, bring it into view */
+      body.sidebar-show .sidebar { /* Target body.sidebar-show specifically */
+        transform: translateX(0);
+      }
+
+      /* Adjust content area when sidebar is shown */
+      body.sidebar-show .wrap { /* Assuming '.wrap' or similar is your main content wrapper */
+        /* Adjusted margin-left to match the new sidebar width */
+        margin-left: 80vw; /* Push content to the right by 80% of viewport width */
+        transition: margin-left 0.3s ease-in-out;
+      }
+
+      /* Fallback for max-width if sidebar exceeds it */
+      body.sidebar-show .wrap {
+        margin-left: min(80vw, 280px); /* Use the smaller of 80vw or 280px */
+      }
+    }
+  </style>
+
+  <script>
+    // JavaScript to handle sidebar toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.querySelector('.sidebar-toggle');
+      const body = document.body;
+
+      if (toggleButton) {
+        toggleButton.addEventListener('click', function() {
+          body.classList.toggle('sidebar-show'); // Toggle the class on the body
+        });
+      }
+    });
+  </script>
 </head>
