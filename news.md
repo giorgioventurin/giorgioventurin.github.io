@@ -12,7 +12,7 @@ title: News
 * I will be providing teaching assistance for the course *“Machine Learning”* (Fall 2024), from the Master’s Degree in Computer Engineering at the University of Padova.
 
 **July 2024**  
-* I will be joining the [DARE](https://www.fondazionedare.it/it/) summer school on *"Co-design of Digital Preventive Technologies"*.
+* I will be joining the [DARE](https://www.fondazionedare.it/en/) summer school on *"Co-design of Digital Preventive Technologies"*.
 
 **October 2023**  
 * I will be providing teaching assistance for the course *“Machine Learning”* (Fall 2023), from the Master’s Degree in Computer Engineering at the University of Padova.
