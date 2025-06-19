@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: About me
 ---
 
@@ -10,12 +10,12 @@ I am a Ph.D. student in Computer Engineering at the [Department of Information E
 You can find my full CV [here](res/docs/CV.pdf).
 
 
-# **Research interests**
+# Research interests
 ---
 My primary research interests are focused on *Machine Learning*, *Data Mining* and *Network Analysis*.
 In particular, I study the integration of machine learning techniques with classical algorithm design, with interdisciplinary applications in bioinformatics and network analysis.
 
-# **Contacts**
+# Contacts
 ---
 Via Giovanni Gradenigo 6/B  
 Department of Information Engineering  
