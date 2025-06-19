@@ -14,7 +14,7 @@ title: Awards
 **Fellowship "BUCA'22: Challenges in building billion user cloud applications"** (June 2022) 
 
 <sup>
-    Merit award to attend the [BUCA'22 summer school](https://buca22.bici.events/) at the Bertinoro Internation Center for Informatics.
+    Merit award to attend the [BUCA'22 summer school](https://buca22.bici.events/) at the Bertinoro International Center for Informatics.
 </sup>
 
 ---
