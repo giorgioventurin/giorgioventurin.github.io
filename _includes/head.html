@@ -35,7 +35,7 @@
       position: fixed;
       top: 15px;
       left: 15px;
-      z-index: 1000; /* Ensure it's above other content */
+      z-index: 1001; /* Above backdrop */
       background-color: #333; /* Dark background */
       color: #fff; /* White text */
       border: none;
@@ -52,9 +52,27 @@
         display: block;
       }
 
+      /* Backdrop behind the sidebar on mobile */
+      .sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 220ms ease-out;
+      }
+
+      body.sidebar-show .sidebar-backdrop {
+        display: block;
+        opacity: 1;
+        transition: opacity 260ms ease-out;
+      }
+
       /* Hide the sidebar by default on small screens */
       .sidebar {
-        transform: translateX(-100%); /* Move off-screen to the left */
+        transform: translate3d(-100%, 0, 0); /* Move off-screen to the left */
+        will-change: transform;
         position: fixed;
         top: 0;
         left: 0;
@@ -63,40 +81,124 @@
         width: 80vw; /* Takes up 80% of the viewport width */
         max-width: 280px; /* Optional: Keep a maximum width for larger mobile devices/tablets */
         z-index: 999;
-        transition: transform 0.3s ease-in-out; /* Smooth transition */
-        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        /* Smoother transition than linear/ease-in-out */
+        transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: 2px 0 14px rgba(0,0,0,0.25);
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
       }
 
       /* When 'sidebar-show' class is added, bring it into view */
       body.sidebar-show .sidebar { /* Target body.sidebar-show specifically */
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
       }
 
-      /* Adjust content area when sidebar is shown */
-      body.sidebar-show .wrap { /* Assuming '.wrap' or similar is your main content wrapper */
-        /* Adjusted margin-left to match the new sidebar width */
-        margin-left: 80vw; /* Push content to the right by 80% of viewport width */
-        transition: margin-left 0.3s ease-in-out;
+      /* Keep the background content in place (don't shift it when the sidebar is open) */
+      body.sidebar-show .content {
+        margin-left: initial;
+        transition: none;
       }
 
-      /* Fallback for max-width if sidebar exceeds it */
-      body.sidebar-show .wrap {
-        margin-left: min(80vw, 280px); /* Use the smaller of 80vw or 280px */
+      /* Respect reduced-motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        .sidebar,
+        .sidebar-backdrop {
+          transition: none !important;
+        }
       }
     }
   </style>
 
   <script>
     // JavaScript to handle sidebar toggle
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const toggleButton = document.querySelector('.sidebar-toggle');
       const body = document.body;
+      const mq = window.matchMedia('(max-width: 768px)');
+      const sidebar = document.querySelector('.sidebar');
 
+      function isSmallScreen() {
+        try {
+          return mq.matches;
+        } catch (e) {
+          return window.innerWidth <= 768;
+        }
+      }
+
+      // Ensure we have a single backdrop element in the DOM
+      let backdrop = document.querySelector('.sidebar-backdrop');
+      if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'sidebar-backdrop';
+        // Put it early so it sits behind the sidebar and toggle button
+        body.insertBefore(backdrop, body.firstChild);
+      }
+
+      function setSidebarState(open) {
+        if (open) body.classList.add('sidebar-show');
+        else body.classList.remove('sidebar-show');
+      }
+
+      // Initial state (mobile): show the sidebar ONLY on the first entry to the site (per session).
+      // After that, keep it hidden by default, but still reopenable via the toggle button.
+      if (isSmallScreen()) {
+        let hasAutoOpened = false;
+        try {
+          hasAutoOpened = sessionStorage.getItem('sidebarAutoOpened') === '1';
+        } catch (e) {
+          // sessionStorage may be unavailable; treat as not opened
+          hasAutoOpened = false;
+        }
+
+        if (!hasAutoOpened) {
+          setSidebarState(true);
+          try {
+            sessionStorage.setItem('sidebarAutoOpened', '1');
+          } catch (e) {
+            // ignore
+          }
+        } else {
+          setSidebarState(false);
+        }
+      }
+
+      // Toggle handler (open/close/reopen)
       if (toggleButton) {
-        toggleButton.addEventListener('click', function() {
-          body.classList.toggle('sidebar-show'); // Toggle the class on the body
+        toggleButton.addEventListener('click', function (evt) {
+          evt.preventDefault();
+          const willOpen = !body.classList.contains('sidebar-show');
+          setSidebarState(willOpen);
         });
       }
+
+      // Close when tapping on the backdrop (outside the sidebar)
+      backdrop.addEventListener('click', function () {
+        if (!isSmallScreen()) return;
+        setSidebarState(false);
+      });
+
+      // Close sidebar after clicking an internal navigation link (mobile only)
+      if (sidebar) {
+        sidebar.addEventListener('click', function (evt) {
+          const link = evt.target && evt.target.closest ? evt.target.closest('a') : null;
+          if (!link) return;
+          if (!isSmallScreen()) return;
+
+          const href = link.getAttribute('href') || '';
+          // Close for internal navigation; keep mailto/external usable without forcing close
+          const isInternal = href.startsWith('/') || href.startsWith('#') || href.startsWith('{{ site.baseurl }}');
+          if (isInternal) {
+            setSidebarState(false);
+          }
+        });
+      }
+
+      // When going from mobile -> desktop, drop the mobile-only class
+      window.addEventListener('resize', function () {
+        if (!isSmallScreen()) {
+          body.classList.remove('sidebar-show');
+        }
+      });
     });
   </script>
 

@@ -8,7 +8,7 @@ title: Education
 
 <sup>
     University of Padova, Italy  
-    Topic: Algorithms for pattern mining on cancer data  
+    Topic: Algorithms for pattern mining on biological data  
     Supervisor: Prof. Fabio Vandin
 </sup>
 
