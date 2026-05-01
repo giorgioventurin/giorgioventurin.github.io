@@ -4,6 +4,13 @@ title: Awards
 ---
 
 ---
+**Princeton VSRC Award** (April 2026)
+
+<sup>
+    Award for 6 months visiting researcher program at the Department of Computer Science of Princeton University.
+</sup>
+
+---
 **Ph.D. fellowship** (July 2023)
 
 <sup>
