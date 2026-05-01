@@ -7,7 +7,7 @@ title: Awards
 **Princeton VSRC Award** (April 2026)
 
 <sup>
-    Award for 6 months visiting researcher program at the Department of Computer Science of Princeton University.
+    Award for 6 months visiting researcher program at the [Department of Computer Science of Princeton University](https://www.cs.princeton.edu/).
 </sup>
 
 ---
